@@ -1,1 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Valentine Tease</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body {
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+    font-family:Arial;
+    flex-direction:column;
+    text-align:center;
+    padding:20px;
+    overflow:hidden;
+
+    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
+                url('https://raw.githubusercontent.com/amitconvex/Pranjal/d92f77a281fbf278b8133c02540397409228d6e2/Malegaon%20Image.png');
+    background-size: cover;
+    background-position: center;
+    color: white;
+}
+
+h1 {
+    font-size:5vw;
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.7);
+}
+
+button {
+    padding:15px 30px;
+    margin:10px;
+    font-size:18px;
+    border:none;
+    border-radius:10px;
+    cursor:pointer;
+}
+
+#yes {
+    background:#ff4d6d;
+    color:white;
+}
+
+#no {
+    background:#ccc;
+    position:absolute;
+}
+</style>
+</head>
+
+<body>
+
+<h1>
+Roses are red,<br>
+Violets are blue,<br>
+Is Parth your Valentine?<br>
+And does he have a surprise for you? 😉
+</h1>
+
+<div>
+<button id="yes">Yes ❤️</button>
+<button id="no">No 😄</button>
+</div>
+
+<script>
+const noBtn = document.getElementById("no");
+const yesBtn = document.getElementById("yes");
+
+function moveButton() {
+    const x = Math.random() * (window.innerWidth - 120);
+    const y = Math.random() * (window.innerHeight - 80);
+    noBtn.style.position = "fixed";
+    noBtn.style.left = x + "px";
+    noBtn.style.top = y + "px";
+}
+
+noBtn.addEventListener("mouseenter", moveButton);
+noBtn.addEventListener("touchstart", function(e){
+    e.preventDefault();
+    moveButton();
+});
+
+yesBtn.addEventListener("click", function() {
+    document.body.innerHTML = `
+    <div style="display:flex;justify-content:center;align-items:center;height:100vh;background:#ffe6eb;flex-direction:column;">
+        <h1 style="font-size:6vw;">Of course 😄</h1>
+        <p style="font-size:5vw;">You love skinny pants.</p>
+    </div>
+    `;
+});
+
+noBtn.addEventListener("click", function() {
+    document.body.innerHTML = `
+    <div style="display:flex;justify-content:center;align-items:center;height:100vh;background:#ffe6eb;flex-direction:column;">
+        <img src="https://raw.githubusercontent.com/amitconvex/Pranjal/cca83ed4f1522294a1bb4bb72b3f931936682cfd/ChatGPT%20Image%20Feb%2014%2C%202026%2C%2005_31_37%20PM.png" style="width:90%;max-width:400px;border-radius:20px;">
+    </div>
+    `;
+});
+</script>
+
+</body>
+</html>
 
